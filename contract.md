@@ -13,3 +13,4 @@
 3. **Conflict Resolution** Conflicts will be taken care of with a group vote to insure the common interest in the team. In a chance that there are multiple ties, there will be a rock-paper-scissors showdown between the ideas of interests to resolve any conflicts.
 
 Vansh Gupta, vanshg3
+Walter Tang, waltert3
