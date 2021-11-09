@@ -12,6 +12,6 @@
 2. **Time Commitment** Each team member is expected to put in 5 hours of work each week to project. If any team member has numerous deadlines or unforeseen circumstances, they should let the group know immediately. From there, the team can discuss or manage the situation.
 3. **Conflict Resolution** Conflicts will be taken care of with a group vote to insure the common interest in the team. In a chance that there are multiple ties, there will be a rock-paper-scissors showdown between the ideas of interests to resolve any conflicts.
 
-Vansh Gupta, vanshg3
-Walter Tang, waltert3
-Praneeth Guduguntla, ssg6
+Vansh Gupta, vanshg3\
+Walter Tang, waltert3\
+Praneeth Guduguntla, ssg6\
