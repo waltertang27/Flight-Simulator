@@ -22,5 +22,5 @@ We want to store data in an AVL tree. We will be doing insertions, rotations, an
 **12/13:** Build out all necessary documentation related to the project that will allow someone to run and test the application. Check for code quality (add comments, remove unnecessary functions, follow good naming conventions. Add additional test cases to test suite to test project in its entirety.
 
 
-Varun Kowdle, vkowdle2
+Varun Kowdle, vkowdle2\
 Vansh Gupta, vanshg3
