@@ -14,4 +14,4 @@
 
 Vansh Gupta, vanshg3\
 Walter Tang, waltert3\
-Praneeth Guduguntla, ssg6\
+Praneeth Guduguntla, ssg6
