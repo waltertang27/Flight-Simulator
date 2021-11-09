@@ -14,12 +14,12 @@ We want to store data in an AVL tree. We will be doing insertions, rotations, an
 
 
 ## Timeline
-11/08: Proposal Deadline
-11/15: Having a processing pipeline that is able to load the data in an efficient manner, read through every row, clean any bad parts of the data and be ready to add elements to the graph.
-11/23: Write and implement any necessary test cases to test edge behaviour and general behavior. Having simpler methods of graph data structure complete. Such methods would be constructor, add, remove, update, and find. 
-11/30: Write and implement any necessary test cases to test edge behaviour and general behavior. Have a DFS and BFS iterator that can easily traverse both arrays depending on how the user wants it implemented. Have an MVP ready by mid point check-ins to keep pace with the project’s needs.
-12/07: Write and implement any necessary test cases to test edge behaviour and general behavior. Implement the search algorithm described above and be able to find any ways to improve efficiency if possible. Begin to get the project wrapped up by the final deadline.
-12/13: Build out all necessary documentation related to the project that will allow someone to run and test the application. Check for code quality (add comments, remove unnecessary functions, follow good naming conventions. Add additional test cases to test suite to test project in its entirety.
+11/08: Proposal Deadline\
+11/15: Having a processing pipeline that is able to load the data in an efficient manner, read through every row, clean any bad parts of the data and be ready to add elements to the graph.\
+11/23: Write and implement any necessary test cases to test edge behaviour and general behavior. Having simpler methods of graph data structure complete. Such methods would be constructor, add, remove, update, and find. \
+11/30: Write and implement any necessary test cases to test edge behaviour and general behavior. Have a DFS and BFS iterator that can easily traverse both arrays depending on how the user wants it implemented. Have an MVP ready by mid point check-ins to keep pace with the project’s needs.\
+12/07: Write and implement any necessary test cases to test edge behaviour and general behavior. Implement the search algorithm described above and be able to find any ways to improve efficiency if possible. Begin to get the project wrapped up by the final deadline.\
+12/13: Build out all necessary documentation related to the project that will allow someone to run and test the application. Check for code quality (add comments, remove unnecessary functions, follow good naming conventions. Add additional test cases to test suite to test project in its entirety.\
 
 
-Varun Kowdle, vkowdle2\
+Varun Kowdle, vkowdle2

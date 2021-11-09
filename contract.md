@@ -15,5 +15,5 @@
 Vansh Gupta, vanshg3\
 Walter Tang, waltert3\
 Praneeth Guduguntla, ssg6\
-Varun Kowdle, vkowdle2\
+Varun Kowdle, vkowdle2
 
