@@ -1,0 +1,4 @@
+        USA Germany France
+USA     0       10      20
+Germany 0       30      50
+France  24      4       5 
