@@ -46,7 +46,7 @@ int main() {
     istringstream stream(s);
     getline(stream, airline, ',');
 
-    getline(stream, airline_id, 's');
+    getline(stream, airline_id, ',');
 
     getline(stream, source_airport, ',');
 
