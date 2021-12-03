@@ -18,8 +18,9 @@ int main() {
 
   //vector<string> airlines;
 
-  graph routes();
+  //graph routes();
   
+  cout << "hello";
 
   ifstream infile("data.txt");
   if(!infile) {
@@ -72,15 +73,21 @@ int main() {
   infile.close();
 
   //testing
-  /*
+
+  ofstream outfile;
+  outfile.open("test.txt");
     for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
         cout << iter->first<<": ";
+        outfile << iter->first << ": ";
         for(unsigned j = 0; j < iter->second.size(); j++) {
-          cout << iter->second[j];
+          cout << iter->second[j] << " ";
+          outfile << iter->second[j] << " ";
         }
         cout << endl;
+        outfile << endl;
     }
-    */
+    outfile.close();
+    
   
   return 0;
 }
