@@ -67,8 +67,20 @@ int main() {
   }
 
 
+
   
   infile.close();
+
+  //testing
+  /*
+    for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
+        cout << iter->first<<": ";
+        for(unsigned j = 0; j < iter->second.size(); j++) {
+          cout << iter->second[j];
+        }
+        cout << endl;
+    }
+    */
   
   return 0;
 }
