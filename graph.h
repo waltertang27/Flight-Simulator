@@ -4,7 +4,7 @@
 #include <utility>
 #include <algorithm>
 #include <string>
-#include <unordered_map>
+#include <map>
 #include <iterator>
 #include <stack>
 #include <set>
@@ -16,11 +16,13 @@ using namespace std;
 
 class Graph {
     private:
-        unordered_map<string, vector<string>> routeGraph_;
+        map<string, vector<string>> routeGraph_;
 
     public:
         // Initialize the matrix to zero
         Graph();
+
+        Graph(map<string, vector<string>> &graph);
 
         // Print the martix
         void toString();
@@ -37,11 +39,11 @@ class Graph {
                 string val;
                 stack<string> st;
                 set<string> visited;
-                unordered_map<string, vector<string>> graph;
+                map<string, vector<string>> graph;
 
             public:
                 Iterator() {};
-                Iterator(string start, unordered_map<string, vector<string>> graph_)
+                Iterator(string start, map<string, vector<string>> graph_)
                 {
                     val = start;
                     st.push(val);

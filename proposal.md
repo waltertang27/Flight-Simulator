@@ -28,4 +28,5 @@ Second Algorithm: Our other algorithm would be Tarjan's strongly connected compo
 
 
 Varun Kowdle, vkowdle2\
-Vansh Gupta, vanshg3
+Vansh Gupta, vanshg3\
+Walter Tang, waltert3

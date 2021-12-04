@@ -3,7 +3,7 @@
 #include <vector>
 #include <utility>
 #include <algorithm>
-#include <unordered_map>
+#include <map>
 #include <string>
 
 using namespace std;
@@ -21,6 +21,10 @@ Graph::Graph() {
     routeGraph_["ORD"] = ORD_connecting;
     routeGraph_["MDW"] = MDW_connecting;
     
+}
+
+Graph::Graph(map<string, vector<string>> &graph) {
+    routeGraph_ = graph;
 }
 
 void Graph::toString() {
