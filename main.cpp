@@ -1,11 +1,12 @@
 #include <iostream>
 #include <fstream>
-using namespace std;
 #include <vector>
 #include <string>
-#include "graph.h"
+#include "graph.cpp"
 #include <map>
 #include <sstream>
+using namespace std;
+
 //Add any includes here
 
 int main() {
@@ -16,12 +17,7 @@ int main() {
 
   map<string, vector<string> > routes;
 
-  //vector<string> airlines;
-
-  //graph routes();
-  
-  cout << "hello";
-
+  string s;
   ifstream infile("data.txt");
   if(!infile) {
     cout << "data file can not be opened" << endl;
@@ -29,10 +25,6 @@ int main() {
   }
 
 
-  
-
-  //stringstream ss(str);
-  string s;
   while(getline(infile, s)) {
     string airline;;
     string airline_id;
@@ -72,22 +64,30 @@ int main() {
   
   infile.close();
 
-  //testing
+  // //testing
 
-  ofstream outfile;
-  outfile.open("test.txt");
-    for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
-        cout << iter->first<<": ";
-        outfile << iter->first << ": ";
-        for(unsigned j = 0; j < iter->second.size(); j++) {
-          cout << iter->second[j] << " ";
-          outfile << iter->second[j] << " ";
-        }
-        cout << endl;
-        outfile << endl;
-    }
-    outfile.close();
+  // ofstream outfile;
+  // outfile.open("test.txt");
+  //   for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
+  //       cout << iter->first<<": ";
+  //       outfile << iter->first << ": ";
+  //       for(unsigned j = 0; j < iter->second.size(); j++) {
+  //         cout << iter->second[j] << " ";
+  //         outfile << iter->second[j] << " ";
+  //       }
+  //       cout << endl;
+  //       outfile << endl;
+  //   }
+  //   outfile.close();
     
+  Graph graph(routes);
+    // graph.toString();
+
+  cout << "The vector elements are : ";
+  cout << "\n";
+  for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
+    cout << *it << ", ";
+  cout << "\n";
   
   return 0;
 }
