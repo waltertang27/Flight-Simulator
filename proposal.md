@@ -16,7 +16,11 @@ Every key will be the name of an airport the maps to a list of all of the connec
 
 ## Graph Algorithm
 Traversal: We will be implementing DFS as our traversal. The inputs to the DFS will be the starting node and the ending node that we want to traverse to. Each node contains an airport and its information which indicates if there is a flight from the airport to another airport. The output of the traversal at every iteration is the current node which is an airport and its information and distance.
+
+
 First Algorithm: The first algorithm we will implement is Dijkstra’s Algorithm which will help us find the shortest path between two countries in the flight graph. This will be useful to figure out, given two airports, how can we get from airport A to Airport B in the shortest amount of travel distance. This algorithm, given airports A and C, would return a list of the shortest path from A to C based on the weighted edges (distances between the airports). The inputs of the algorithm are two airports and the output is a list of airport nodes in the shortest path between the two airports. The time complexity is O(E + VlogV) if E is the number of edges and V is the number of countries. 
+
+
 Second Algorithm: Our other algorithm would be Tarjan's strongly connected components algorithm. This algorithm is able to detect strongly connected components in our graph which indicates whether a cycle is present within our graph. Suppose we want to find all the possible paths a person can fly if they want to visit multiple cities on a round trip and go back to the original. This algorithm will give us the different cycles that could exist in this graph based specifically on the number of stops the user inputs. We could use a DFS, as it produces a tree, and we can check if there is a cycle by seeing if there is a back edge in the graph, which is a joint node to itself or an ancestor in the tree from DFS. This would have a O(|V| + |E|) runtime. We need to run a DFS from every unvisited node, so our input could be any point in the graph. We would output the different paths that the user will take as a list of lists of the edges.
 
 ## Timeline
