@@ -81,13 +81,14 @@ int main() {
   //   outfile.close();
     
   Graph graph(routes);
-    // graph.toString();
+  // graph.toString();
+  graph.dfs("SFO");
 
-  cout << "The vector elements are : ";
-  cout << "\n";
-  for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
-    cout << *it << ", ";
-  cout << "\n";
+  // cout << "The vector elements are : ";
+  // cout << "\n";
+  // for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
+  //   cout << *it << ", ";
+  // cout << "\n";
   
   return 0;
 }
