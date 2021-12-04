@@ -10,7 +10,10 @@ Covid-19 significantly diminished our ability to travel for a couple years, but 
 Our dataset will primarily consist of the latest data from this organization which pieces together a curated list of flight destinations from start and end destinations. There are several steps required for us to make this data usable and accurate. 
 First, we will iterate through every line in the data file, and extract the airplane code for the source airport and the destination airport. Once we get these values, we will convert the airport codes to the actual airport names using another map that maps an airport code to the airport name.
 We will then store the graph in a hash map described below:
+
+
 map<string, vector<pair<string, double>>  -> this one stores the source airport, and the destination airport with the distance between them as a pair
+
 
 Every key will be the name of an airport the maps to a list of all of the connecting airports. The weighted edges between two nodes in the graph will represent the distance between the two airports. 
 
