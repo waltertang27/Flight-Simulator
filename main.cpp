@@ -33,8 +33,9 @@ int main() {
   graph.toString();
 
   cout << "The vector elements are : ";
+  cout << "\n";
     for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
-        cout << "" << "";
-  
+        cout << *it << ", ";
+    cout << "\n";
   return 0;
 }

@@ -6,9 +6,11 @@
 #include <string>
 #include <unordered_map>
 #include <iterator>
-using namespace std;
 #include <stack>
 #include <set>
+
+using namespace std;
+
 
 
 
@@ -38,13 +40,32 @@ class Graph {
                 unordered_map<string, vector<string>> graph;
 
             public:
-                Iterator();
+                Iterator() {};
                 Iterator(string start, unordered_map<string, vector<string>> graph_)
                 {
                     val = start;
                     st.push(val);
-                    graph_ = graph;
-                    std::cout << start << ", ";
+                    graph = graph_;
+                    if (!st.empty())
+                    {
+                        val = st.top();
+                        st.pop();
+                      
+                        if ((visited.find(val) == visited.end()))
+                        {
+                            visited.insert(val);
+                        }
+
+                        for (auto s : graph[val]) {
+                            std::cout << s << ", ";
+                            if ((visited.find(s) == visited.end())) {
+                                st.push(s);
+                            }
+                        }
+                                
+                        std::cout << "\n";
+                    }
+                    
                 }
                 Iterator(const Iterator &that);
 
@@ -54,28 +75,18 @@ class Graph {
                 }
 
                 Iterator &operator++()
-                {   
-                
+                {  
+                    
                     if (!st.empty())
                     {
                         val = st.top();
                         st.pop();
-                        // std::cout << key << ", ";
-
-                        // Stack may contain same vertex twice. So
-                        // we need to print the popped item only
-                        // if it is not visited.
+                      
                         if ((visited.find(val) == visited.end()))
                         {
                             visited.insert(val);
                         }
 
-                        // Get all adjacent vertices of the popped vertex s
-                        // If a adjacent has not been visited, then push it
-                        // to the stack.
-                        for (auto s : graph[val]) {
-                            std::cout << s << ", ";
-                        }
                         for (auto s : graph[val])
                             if ((visited.find(s) == visited.end()))
                                 st.push(s);
@@ -85,11 +96,14 @@ class Graph {
                 string operator*() { return val; };
 
                 bool operator==(const Iterator &that) const { return val == that.val; }
-                bool operator!=(const Iterator &that) const { return val != that.val || st.empty(); }
+                bool operator!=(const Iterator &that) const { return !st.empty() && val != that.val; }
 
         };
 
-        Iterator begin() { return Iterator("SFO", routeGraph_); }
-        Iterator end()   { return Iterator("", routeGraph_); }
+        Iterator begin() { 
+            Iterator it("SFO", routeGraph_);
+            return it; 
+        }
+        Iterator end()   { return Iterator(); }
 
 };
