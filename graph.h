@@ -57,13 +57,11 @@ class Graph {
                         }
 
                         for (auto s : graph[val]) {
-                            std::cout << s << ", ";
                             if ((visited.find(s) == visited.end())) {
                                 st.push(s);
                             }
                         }
                                 
-                        std::cout << "\n";
                     }
                     
                 }
