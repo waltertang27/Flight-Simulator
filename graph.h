@@ -16,13 +16,13 @@ using namespace std;
 
 class Graph {
     private:
-        map<string, vector<string>> routeGraph_;
+        map<string, vector<pair<string, long double>>> routeGraph_;
 
     public:
         // Initialize the matrix to zero
         Graph();
 
-        Graph(map<string, vector<string>> &graph);
+        Graph(map<string, vector<pair<string, long double>>> &graph);
 
         // Print the martix
         void toString();
@@ -39,11 +39,11 @@ class Graph {
                 string val;
                 stack<string> st;
                 set<string> visited;
-                map<string, vector<string>> graph;
+                map<string, vector<pair<string, long double>>> graph;
 
             public:
                 Iterator() {};
-                Iterator(string start, map<string, vector<string>> graph_)
+                Iterator(string start, map<string, vector<pair<string, long double>>> graph_)
                 {
                     val = start;
                     st.push(val);
@@ -59,8 +59,8 @@ class Graph {
                         }
 
                         for (auto s : graph[val]) {
-                            if ((visited.find(s) == visited.end())) {
-                                st.push(s);
+                            if ((visited.find(s.first) == visited.end())) {
+                                st.push(s.first);
                             }
                         }
                                 
@@ -76,7 +76,7 @@ class Graph {
 
                 Iterator &operator++()
                 {  
-                    
+                    cout << val << "\n";
                     if (!st.empty())
                     {
                         val = st.top();
@@ -88,8 +88,8 @@ class Graph {
                         }
 
                         for (auto s : graph[val])
-                            if ((visited.find(s) == visited.end()))
-                                st.push(s);
+                            if ((visited.find(s.first) == visited.end()))
+                                st.push(s.first);
                     }
                 }
 
