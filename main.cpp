@@ -8,6 +8,7 @@
 #include <utility>
 #include <bits/stdc++.h>
 
+
 using namespace std;
 
 //Add any includes here
@@ -44,6 +45,7 @@ int main() {
   map<string, vector<pair<string, long double>>> routes;
   map<string, pair<long double, long double> > airportLoc;
 
+	
   string s;
   ifstream infile("airports.txt");
   if(!infile) {
@@ -152,10 +154,37 @@ int main() {
   }
 
 
-
-  
   infile2.close();
-    
+
+  // //testing
+/*
+   ofstream outfile;
+   outfile.open("test.txt");
+     for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
+         cout << iter->first<<": ";
+         outfile << iter->first << ": ";
+         for(unsigned j = 0; j < iter->second.size(); j++) {
+           cout << iter->second[j] << " ";
+           outfile << iter->second[j] << " ";
+         }
+         cout << endl;
+         outfile << endl;
+     }
+     outfile.close();
+*/
+
+    /*
+  Graph graph(test);
+    // graph.toString();
+
+  cout << "The vector elements are : \n";
+  cout << " \n";
+*/
+  /*
+  for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
+    cout << *it << ", ";
+  cout << "\n";
+  */
   Graph graph(routes);
   graph.toString();
 
