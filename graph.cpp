@@ -8,20 +8,22 @@
 
 using namespace std;
 
-Graph::Graph() {
-    // vector<string> SFO_connecting = {"LAX", "CMI", "JFK"};
-    // vector<string> LAX_connecting = {"SFO", "MDW"};
-    // vector<string> CMI_connecting = {"SFO", "MDW", "ORD"};
-    // vector<string> ORD_connecting = {"CMI"};
-    // vector<string> MDW_connecting = {"CMI", "JFK", "LAX"};
+// TODO need to create a test bench that use edge weights
+// Graph::Graph() {
+//     vector<string> SFO_connecting = {"LAX", "CMI", "JFK"};
+//     vector<string> LAX_connecting = {"SFO", "MDW"};
+//     vector<string> CMI_connecting = {"SFO", "MDW", "ORD"};
+//     vector<string> ORD_connecting = {"CMI"};
+//     vector<string> MDW_connecting = {"CMI", "JFK", "LAX"};
+//     vector<string> JFK_connecting = {"SFO", "MDW"};
 
-    // routeGraph_["SFO"] = SFO_connecting;
-    // routeGraph_["LAX"] = LAX_connecting;
-    // routeGraph_["CMI"] = CMI_connecting;
-    // routeGraph_["ORD"] = ORD_connecting;
-    // routeGraph_["MDW"] = MDW_connecting;
-    
-}
+//     routeGraph_["SFO"] = SFO_connecting;
+//     routeGraph_["LAX"] = LAX_connecting;
+//     routeGraph_["CMI"] = CMI_connecting;
+//     routeGraph_["ORD"] = ORD_connecting;
+//     routeGraph_["MDW"] = MDW_connecting;
+//     routeGraph_["JFK"] = JFK_connecting;
+// }
 
 Graph::Graph(map<string, vector<pair<string, long double>>> &graph) {
     routeGraph_ = graph;
@@ -39,4 +41,41 @@ void Graph::toString() {
         
     }
 }
+
+// need to refactor to work with weights
+// void Graph::dfs(string start) {
+//     stack<string> st;
+//     set<string> visited;
+
+//     st.push(start);
+ 
+//     while (!st.empty())
+//     {
+//         start = st.top();
+//         st.pop();
+ 
+//         if ((visited.find(start) != visited.end())) {
+//             continue;
+//         }
+ 
+//         visited.insert(start);
+//         cout << start << " ";
+ 
+//         for (auto str : routeGraph_[start]) {
+//             if ((visited.find(str) == visited.end())) {
+//                 st.push(str);
+//             }
+//         }
+//     }
+// }
+
+/*
+
+st = [SFO]
+
+SFO
+SFO
+
+
+*/
 
