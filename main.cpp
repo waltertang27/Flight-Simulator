@@ -96,18 +96,27 @@ int main() {
     test["ORD"] = ORD_connecting;
     test["MDW"] = MDW_connecting;
     
-    
+    /*
   Graph graph(test);
     // graph.toString();
 
   cout << "The vector elements are : \n";
   cout << " \n";
-
+*/
   /*
   for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
     cout << *it << ", ";
   cout << "\n";
   */
+  Graph graph(routes);
+  // graph.toString();
+  graph.dfs("SFO");
+
+  // cout << "The vector elements are : ";
+  // cout << "\n";
+  // for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
+  //   cout << *it << ", ";
+  // cout << "\n";
   
 
   return 0;
