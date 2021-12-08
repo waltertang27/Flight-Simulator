@@ -16,13 +16,13 @@ using namespace std;
 
 class Graph {
     private:
-        map<string, vector<string>> routeGraph_;
+        map<string, vector<pair<string, long double>>> routeGraph_;
 
     public:
         // Initialize the matrix to zero
         Graph();
 
-        Graph(map<string, vector<string>> &graph);
+        Graph(map<string, vector<pair<string, long double>>> &graph);
 
         // Print the martix
         void toString();
@@ -35,82 +35,81 @@ class Graph {
         void dfs(string start);
 
         
-        class Iterator : iterator<forward_iterator_tag, string> {
-            private:
-                string val;
-                stack<string> st;
-                set<string> visited;
-                map<string, vector<string>> graph;
+        // class Iterator : iterator<forward_iterator_tag, string> {
+        //     private:
+        //         string val;
+        //         stack<string> st;
+        //         set<string> visited;
+        //         map<string, vector<pair<string, long double>>> graph;
 
-            public:
-                Iterator() {};
-                Iterator(string start, map<string, vector<string>> graph_)
-                {
-                    val = start;
-                    st.push(val);
-                    graph = graph_;
-                    if (!st.empty())
-                    {
-                        string s = st.top();
-                        st.pop();
+        //     public:
+        //         Iterator() {};
+        //         Iterator(string start, map<string, vector<pair<string, long double>>> graph_)
+        //         {
+        //             val = start;
+        //             st.push(val);
+        //             graph = graph_;
+        //             if (!st.empty())
+        //             {
+        //                 string s = st.top();
+        //                 st.pop();
                       
-                        if ((visited.find(s) == visited.end()))
-                        {
-                            visited.insert(s);
+        //                 if ((visited.find(s) == visited.end()))
+        //                 {
+        //                     visited.insert(s);
 
-                            for (auto str : graph[s]) {
-                                if ((visited.find(str) == visited.end())) {
-                                    st.push(str);
-                                }
-                            }
-                        }
+        //                 for (auto s : graph[val]) {
+        //                     if ((visited.find(s.first) == visited.end())) {
+        //                         st.push(s.first);
+        //                     }
+        //                 }
 
                         
                                 
-                    }
+        //             }
                     
-                }
-                Iterator(const Iterator &that);
+        //         }
+        //         Iterator(const Iterator &that);
 
-                Iterator &operator=(const Iterator &that)
-                {
-                    val = that.val;
-                }
+        //         Iterator &operator=(const Iterator &that)
+        //         {
+        //             val = that.val;
+        //         }
 
-                Iterator &operator++()
-                {  
-                    
-                    if (!st.empty())
-                    {
-                        val = st.top();
-                        st.pop();
+        //         Iterator &operator++()
+        //         {  
+        //             cout << val << "\n";
+        //             if (!st.empty())
+        //             {
+        //                 val = st.top();
+        //                 st.pop();
                       
-                        if ((visited.find(val) == visited.end()))
-                        {
-                            visited.insert(val);
-                        }
+        //                 if ((visited.find(val) == visited.end()))
+        //                 {
+        //                     visited.insert(val);
+        //                 }
 
-                        for (auto s : graph[val])
-                            if ((visited.find(s) == visited.end()))
-                                st.push(s);
-                    }
+        //                 for (auto s : graph[val])
+        //                     if ((visited.find(s.first) == visited.end()))
+        //                         st.push(s.first);
+        //             }
 
                     
-                }
+        //         }
                 
 
-                string operator*() { return val; };
+        //         string operator*() { return val; };
 
-                bool operator==(const Iterator &that) const { return val == that.val; }
-                bool operator!=(const Iterator &that) const { return !st.empty() && val != that.val; }
+        //         bool operator==(const Iterator &that) const { return val == that.val; }
+        //         bool operator!=(const Iterator &that) const { return !st.empty() && val != that.val; }
 
-        };
+        // };
 
-        Iterator begin() { 
-            Iterator it("SFO", routeGraph_);
-            return it; 
-        }
-        Iterator end()   { return Iterator(); }
-        void dijkstra(map<string, vector<string, string> >, string start);
+        // Iterator begin() { 
+        //     Iterator it("SFO", routeGraph_);
+        //     return it; 
+        // }
+        // Iterator end()   { return Iterator(); }
+
 
 };
