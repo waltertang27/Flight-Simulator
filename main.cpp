@@ -123,6 +123,7 @@ int main() {
 
     
     if (iata.compare("\\N") != 0) {
+      iata = iata
       airportLoc[iata] = p;
       // cout << iata << p.first << " "  << p.second << "\n";
     }
