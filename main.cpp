@@ -5,6 +5,7 @@
 #include "graph.cpp"
 #include <map>
 #include <sstream>
+
 using namespace std;
 
 //Add any includes here
@@ -17,6 +18,7 @@ int main() {
 
   map<string, vector<string> > routes;
 
+	
   string s;
   ifstream infile("data.txt");
   if(!infile) {
@@ -65,29 +67,48 @@ int main() {
   infile.close();
 
   // //testing
+/*
+   ofstream outfile;
+   outfile.open("test.txt");
+     for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
+         cout << iter->first<<": ";
+         outfile << iter->first << ": ";
+         for(unsigned j = 0; j < iter->second.size(); j++) {
+           cout << iter->second[j] << " ";
+           outfile << iter->second[j] << " ";
+         }
+         cout << endl;
+         outfile << endl;
+     }
+     outfile.close();
+*/
+    map<string, vector<string> > test;
 
-  // ofstream outfile;
-  // outfile.open("test.txt");
-  //   for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
-  //       cout << iter->first<<": ";
-  //       outfile << iter->first << ": ";
-  //       for(unsigned j = 0; j < iter->second.size(); j++) {
-  //         cout << iter->second[j] << " ";
-  //         outfile << iter->second[j] << " ";
-  //       }
-  //       cout << endl;
-  //       outfile << endl;
-  //   }
-  //   outfile.close();
+    vector<string> SFO_connecting = {"LAX", "CMI", "JFK"};
+    vector<string> LAX_connecting = {"SFO", "MDW"};
+    vector<string> CMI_connecting = {"SFO", "MDW", "ORD"};
+    vector<string> ORD_connecting = {"CMI"};
+    vector<string> MDW_connecting = {"CMI", "JFK", "LAX"};
+
+    test["SFO"] = SFO_connecting;
+    test["LAX"] = LAX_connecting;
+    test["CMI"] = CMI_connecting;
+    test["ORD"] = ORD_connecting;
+    test["MDW"] = MDW_connecting;
     
-  Graph graph(routes);
+    
+  Graph graph(test);
     // graph.toString();
 
-  cout << "The vector elements are : ";
-  cout << "\n";
+  cout << "The vector elements are : \n";
+  cout << " \n";
+
+  /*
   for (Graph::Iterator it = graph.begin(); it != graph.end(); ++it)
     cout << *it << ", ";
   cout << "\n";
+  */
   
+
   return 0;
 }

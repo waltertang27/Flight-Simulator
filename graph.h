@@ -32,6 +32,7 @@ class Graph {
         //     string key;
         //     vector<string> neighbors;
         // };
+        void dfs(string start);
 
         
         class Iterator : iterator<forward_iterator_tag, string> {
@@ -50,19 +51,21 @@ class Graph {
                     graph = graph_;
                     if (!st.empty())
                     {
-                        val = st.top();
+                        string s = st.top();
                         st.pop();
                       
-                        if ((visited.find(val) == visited.end()))
+                        if ((visited.find(s) == visited.end()))
                         {
-                            visited.insert(val);
-                        }
+                            visited.insert(s);
 
-                        for (auto s : graph[val]) {
-                            if ((visited.find(s) == visited.end())) {
-                                st.push(s);
+                            for (auto str : graph[s]) {
+                                if ((visited.find(str) == visited.end())) {
+                                    st.push(str);
+                                }
                             }
                         }
+
+                        
                                 
                     }
                     
@@ -91,7 +94,10 @@ class Graph {
                             if ((visited.find(s) == visited.end()))
                                 st.push(s);
                     }
+
+                    
                 }
+                
 
                 string operator*() { return val; };
 
@@ -105,5 +111,6 @@ class Graph {
             return it; 
         }
         Iterator end()   { return Iterator(); }
+        void dijkstra(map<string, vector<string, string> >, string start);
 
 };
