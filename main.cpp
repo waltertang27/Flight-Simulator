@@ -140,7 +140,10 @@ int main() {
         
   //   }
 
-  cout << airportLoc["ZTR"].first << airportLoc["ZTR"].second << "\n";
+  // airportLoc["ZTR"] = pair<long double, long double>(1.0, 2.0);
+  // string airport = "ZTR";
+
+  cout << airportLoc["\"ZTR\""].first << airportLoc["ZTR"].second << "\n";
   
   string s2;
   ifstream infile2("data.txt");
