@@ -53,6 +53,7 @@ int main() {
       advance(it, random);
       cout << "Recommended random airport source: " << it->first << endl;
     }
+    cin >> source_airport;
   }
   counter = 0;
   //prompts user to enter destination airport
@@ -70,6 +71,7 @@ int main() {
       advance(it, random);
       cout << "Recommended random airport destination: " << it->first << endl;
     }
+    cin >> destination_airport;
   }
 
 
