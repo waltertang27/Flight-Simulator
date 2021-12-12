@@ -43,31 +43,31 @@ void Graph::toString() {
 }
 
 // need to refactor to work with weights
-// void Graph::dfs(string start) {
-//     stack<string> st;
-//     set<string> visited;
+void Graph::dfs(string start) {
+    stack<string> st;
+    set<string> visited;
 
-//     st.push(start);
+    st.push(start);
  
-//     while (!st.empty())
-//     {
-//         start = st.top();
-//         st.pop();
+    while (!st.empty())
+    {
+        start = st.top();
+        st.pop();
  
-//         if ((visited.find(start) != visited.end())) {
-//             continue;
-//         }
+        if ((visited.find(start) != visited.end())) {
+            continue;
+        }
  
-//         visited.insert(start);
-//         cout << start << " ";
+        visited.insert(start);
+        cout << start << " ";
  
-//         for (auto str : routeGraph_[start]) {
-//             if ((visited.find(str) == visited.end())) {
-//                 st.push(str);
-//             }
-//         }
-//     }
-// }
+        for (auto neighbor : routeGraph_[start]) {
+            if ((visited.find(neighbor.first) == visited.end())) {
+                st.push(neighbor.first);
+            }
+        }
+    }
+}
 
 void Graph::dijkstra(map<string, vector<string, string> > routeGraph, string start) {
 

@@ -7,8 +7,8 @@
 #include <utility>
 #include <bits/stdc++.h>
 
-#include "graph.h"
-#include "data.h"
+#include "graph.cpp"
+#include "data.cpp"
 
 
 

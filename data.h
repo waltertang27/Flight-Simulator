@@ -16,7 +16,7 @@ using namespace std;
 
 class Data {
     public:
-        Data();
+        Data() {}
         map<string, pair<long double, long double> > readData(std::string filename);
         map<string, vector<pair<string, long double> > > findRoutes(double distance, string source_airport, string destination_airport);
         long double toRadians(const long double degree);
