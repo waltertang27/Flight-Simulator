@@ -23,6 +23,7 @@ class Data {
         long double distance(pair<long double, long double> a1, pair<long double, long double> a2);
         bool validSource(string source, map<string, pair<long double, long double> > airportLoc);
         bool validDestination(string destination, map<string, pair<long double, long double> > airportLoc);
+        map<string, vector<string> > getFlights(string filename);
     private:
 
 

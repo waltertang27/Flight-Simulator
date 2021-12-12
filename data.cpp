@@ -41,7 +41,7 @@ map<string, pair<long double, long double> > Data::readData(std::string filename
         string tz_database_time;
         string zone;
         string type;
-        string ssource;
+        string source;
         istringstream stream(s);
         getline(stream, airport_id, ',');
         getline(stream, name, ',');
@@ -135,6 +135,19 @@ map<string, vector<pair<string, long double> > > Data::findRoutes(double distanc
         }
       }
     }
+    ofstream outfile;
+   outfile.open("routes.txt");
+     for(auto iter = routes.begin(); iter != routes.end(); ++iter) {
+         //cout << iter->first<<": ";
+         outfile << iter->first << ": ";
+         for(unsigned j = 0; j < iter->second.size(); j++) {
+           //cout << iter->second[j].first << " ";
+           outfile << iter->second[j].second << " ";
+         }
+         //cout << endl;
+         outfile << endl;
+     }
+     outfile.close();
     return routes;
 }
 /**
@@ -171,5 +184,67 @@ long double Data::distance(pair<long double, long double> a1, pair<long double, 
     ans = ans * R;
     return ans;
 }
+
+/**
+ * @brief Reads the flight information, check which airports go where. 
+ * 
+ * @param filename name of the data file
+ * @return map of each flight destination from each source airport
+ */
+map<string, vector<string> > Data::getFlights(string filename) {
+map<string, vector<string> > flights;
+ string s;
+  ifstream infile(filename);
+  if(!infile) {
+    cout << "data file can not be opened" << endl;
+    return flights;
+  }
+  while(getline(infile, s)) {
+    string airline;;
+    string airline_id;
+    string source_airport;
+    string source_airport_id;
+    string destination_airport;
+    string destination_airport_id;
+    string codeshare;
+    string stops;
+    string equipment;
+    istringstream stream(s);
+    getline(stream, airline, ',');
+    getline(stream, airline_id, ',');
+    getline(stream, source_airport, ',');
+    getline(stream, source_airport_id, ',');
+    getline(stream, destination_airport, ',');
+    getline(stream, destination_airport_id, ',');
+    getline(stream, codeshare, ',');
+    getline(stream, stops, ',');
+    getline(stream, equipment, '\n');
+    if(find(flights[source_airport].begin(), flights[source_airport].end(), destination_airport) == flights[source_airport].end()) {
+        flights[source_airport].push_back(destination_airport);
+    }
+  }
+  for(auto i = flights.begin(); i != flights.end(); ++i) {
+      sort(i->second.begin(), i->second.end());
+  }
+  
+  infile.close();
+    
+   ofstream outfile;
+   outfile.open("test.txt");
+     for(auto iter = flights.begin(); iter != flights.end(); ++iter) {
+         //cout << iter->first<<": ";
+         outfile << iter->first << ": ";
+         for(unsigned j = 0; j < iter->second.size(); j++) {
+           //cout << iter->second[j] << " ";
+           outfile << iter->second[j] << " ";
+         }
+         //cout << endl;
+         outfile << endl;
+     }
+     outfile.close();
+
+  return flights;
+}
+
 
 

@@ -79,6 +79,26 @@ int main() {
 
 
   routes = d.findRoutes(dist, source_airport, destination_airport);
+/*
+for(auto i = airportLoc.begin(); i != airportLoc.end(); ++i) {
+    cout << i->first << ", ";
+    
+      cout << i->second.first << ", ";
+      cout << i->second.second << endl;
+    
+  }
+  */
+
+  map<string, vector<string> > flights = d.getFlights("data.txt");
+  /*
+  for(auto i = routes.begin(); i != routes.end(); ++i) {
+    cout << i->first << ", ";
+    for(int j = 0; j < i->second.size(); j++) {
+      cout << i->second[j].first << ", ";
+      cout << i->second[j].second << endl;
+    }
+  }
+  */
 
 
   // //testing
@@ -110,8 +130,12 @@ int main() {
     cout << *it << ", ";
   cout << "\n";
   */
-  Graph graph(routes);
+
+ 
+  Graph graph(routes, flights, airportLoc);
   graph.toString();
+  vector<vector<double> > matrix = graph.makeAdjMatrix();
+  graph.dijkstra(matrix, source_airport, destination_airport);
 
   return 0;
 }
