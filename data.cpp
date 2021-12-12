@@ -41,7 +41,7 @@ map<string, pair<long double, long double> > Data::readData(std::string filename
         string tz_database_time;
         string zone;
         string type;
-        string source;
+        string ssource;
         istringstream stream(s);
         getline(stream, airport_id, ',');
         getline(stream, name, ',');
