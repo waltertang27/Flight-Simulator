@@ -8,6 +8,7 @@
 #include <iterator>
 #include <stack>
 #include <set>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -17,6 +18,8 @@ using namespace std;
 class Graph {
     private:
         map<string, vector<pair<string, long double>>> routeGraph_;
+        map<string, vector<string> > flights;
+        map<string, pair<long double, long double> > airportLoc;
 
     public:
         // Initialize the matrix to zero
@@ -24,8 +27,18 @@ class Graph {
 
         Graph(map<string, vector<pair<string, long double>>> &graph);
 
+        Graph(map<string, vector<pair<string, long double>>> &graph, map<string, vector<string> > &flights, map<string, pair<long double, long double> > airportLoc);
+
         // Print the martix
         void toString();
+
+        void dijkstra(vector<vector<double> > list, string source, string destination);
+
+        long double toRadians(const long double degree);
+
+        long double findDistance(pair<long double, long double> a1, pair<long double, long double> a2);
+
+        vector<vector<double> > makeAdjMatrix();
 
         // struct Vertex {
         //     Vertex(string _key, vector<string> _neighbors): key(_key)), neighbors(_neighbors) { }
@@ -33,7 +46,9 @@ class Graph {
         //     vector<string> neighbors;
         // };
         void dfs(string start);
-        void dijkstra(map<string, vector<string, string> > routeGraph, string start);
+        vector<string> dijkstra(map<string, vector<pair<string, long double> > > routeGraph, string source, string destination);
+        int minDist(int size, vector<double> dist, vector<bool> visit);
+        void printPath(int path[], int i, vector<string> airports);
         // class Iterator : iterator<forward_iterator_tag, string> {
         //     private:
         //         string val;
