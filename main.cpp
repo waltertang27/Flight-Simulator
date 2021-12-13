@@ -18,7 +18,7 @@ int main() {
   map<string, vector<pair<string, long double>>> routes = d.buildGraph();
   
   Graph graph(routes); // Use default constructor to run test suite i.e. Graph graph;
-  graph.toString();
+  // graph.toString();
 
   
   // UNCOMMENT TO RUN/PRINT DIJKSTRA RESULT
