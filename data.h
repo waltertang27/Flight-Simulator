@@ -17,8 +17,8 @@ using namespace std;
 class Data {
     public:
         Data() {}
-        map<string, pair<long double, long double> > readData(std::string filename);
-        map<string, vector<pair<string, long double> > > findRoutes(double distance, string source_airport, string destination_airport);
+        map<string, pair<long double, long double>> getAirportLocations();
+        map<string, vector<pair<string, long double>>> buildGraph();
         long double toRadians(const long double degree);
         long double distance(pair<long double, long double> a1, pair<long double, long double> a2);
         bool validSource(string source, map<string, pair<long double, long double> > airportLoc);

@@ -13,19 +13,20 @@
 using namespace std;
 
 /**
- * @brief reads the data from the given file name
+ * @brief retrivies all the airports and their lat/long coordinates
  * 
- * @param filename name of the file that contains the data
- * @return a map that contains the name of the airport and its coordinates
+ *  @return a map that contains the name of the airport and its coordinates
  */
-map<string, pair<long double, long double> > Data::readData(std::string filename) {
+map<string, pair<long double, long double> > Data::getAirportLocations() {
     string s;
     map<string, pair<long double, long double> > airportLoc;
-    ifstream infile(filename);
+    
+    ifstream infile("airports.txt");
     if(!infile) {
-        cout << "airport data file can not be opened" << endl;
+        cout << "Airport data file can not be opened" << endl;
         return airportLoc;
     }
+
     while(getline(infile, s)) {
         string airport_id;;
         string name;
@@ -41,7 +42,7 @@ map<string, pair<long double, long double> > Data::readData(std::string filename
         string tz_database_time;
         string zone;
         string type;
-        string ssource;
+        string source;
         istringstream stream(s);
         getline(stream, airport_id, ',');
         getline(stream, name, ',');
@@ -111,30 +112,61 @@ bool Data::validDestination(string destination, map<string, pair<long double, lo
 /**
  * @brief creates a map of airports and the distances between them
  * 
- * @param distance 
- * @param source_airport 
- * @param destination_airport 
- * @return map of the airport name and destination airport, distance between them
+ * @return map of aiports and all the other airports that they are connected to.
  */
-map<string, vector<pair<string, long double> > > Data::findRoutes(double distance, string source_airport, string destination_airport) {
-    map<string, vector<pair<string, long double> > > routes;
-    if (routes[source_airport].size() == 0) {
-        routes[source_airport].push_back(pair<string, long double>(destination_airport, distance));
-    }   
-    else {
-        auto size = routes[source_airport].size();
-        for(size_t i = 0; i < size; i++) {
-            if (i < routes[source_airport].size() - 1) {
-          if (distance >= routes[source_airport][i].second && distance < routes[source_airport][i + 1].second) {
-              routes[source_airport].insert(routes[source_airport].begin() + i, pair<string, long double>(destination_airport, distance));
-              break;
-          }
-        } else {
-            routes[source_airport].push_back(pair<string, long double>(destination_airport, distance));
-          
-        }
-      }
+map<string, vector<pair<string, long double> > > Data::buildGraph() {
+    map<string, vector<pair<string, long double>>> routes;
+    map<string, pair<long double, long double>> airportLoc =  getAirportLocations(); 
+    string s2;
+    ifstream infile2("data.txt");
+    if(!infile2) {
+        cout << "Data file can not be opened" << endl;
+        return routes;
     }
+
+    while(getline(infile2, s2)) {
+        string airline;;
+        string airline_id;
+        string source_airport;
+        string source_airport_id;
+        string destination_airport;
+        string destination_airport_id;
+        string codeshare;
+        string stops;
+        string equipment;
+        istringstream stream(s2);
+
+        getline(stream, airline, ',');
+        getline(stream, airline_id, ',');
+        getline(stream, source_airport, ',');
+        getline(stream, source_airport_id, ',');
+        getline(stream, destination_airport, ',');
+        getline(stream, destination_airport_id, ',');
+        getline(stream, codeshare, ',');
+        getline(stream, stops, ',');
+        getline(stream, equipment, '\n');
+
+        double dist = distance(airportLoc[source_airport], airportLoc[destination_airport]);
+
+        if (routes[source_airport].size() == 0) {
+            routes[source_airport].push_back(pair<string, long double>(destination_airport, dist));
+        } else {
+        auto size = routes[source_airport].size();
+            for(size_t i = 0; i < size; i++) {
+                if (i < routes[source_airport].size() - 1) {
+                if (dist >= routes[source_airport][i].second && dist < routes[source_airport][i + 1].second) {
+                    routes[source_airport].insert(routes[source_airport].begin() + i, pair<string, long double>(destination_airport, dist));
+                    break;
+                }
+                } else {
+                    routes[source_airport].push_back(pair<string, long double>(destination_airport, dist));
+                
+                }
+            }
+        }
+    }
+
+    infile2.close();
     return routes;
 }
 /**
