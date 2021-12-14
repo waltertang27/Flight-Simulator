@@ -5,7 +5,6 @@
 #include <map>
 #include <sstream>
 #include <utility>
-#include <bits/stdc++.h>
 
 #include "graph.cpp"
 #include "data.cpp"
@@ -18,9 +17,8 @@ int main() {
   map<string, vector<pair<string, long double>>> routes = d.buildGraph();
   
   Graph graph(routes); // Use default constructor to run test suite i.e. Graph graph;
-  // graph.toString();
+  graph.toString();
 
-  
   // UNCOMMENT TO RUN/PRINT DIJKSTRA RESULT
   /*
   pair<vector<string>, long double> res = graph.dijkstra("MDW", "WLG");

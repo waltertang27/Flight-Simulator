@@ -5,7 +5,8 @@
 #include <map>
 #include <sstream>
 #include <utility>
-#include <bits/stdc++.h>
+#include <math.h>
+// #include <bits/stdc++.h>
 
 #include "graph.h"
 #include "data.h"
@@ -21,7 +22,7 @@ map<string, pair<long double, long double> > Data::getAirportLocations() {
     string s;
     map<string, pair<long double, long double> > airportLoc;
     
-    ifstream infile("airports.txt");
+    ifstream infile(airportDataLoc);
     if(!infile) {
         cout << "Airport data file can not be opened" << endl;
         return airportLoc;
@@ -118,7 +119,7 @@ map<string, vector<pair<string, long double> > > Data::buildGraph() {
     map<string, vector<pair<string, long double>>> routes;
     map<string, pair<long double, long double>> airportLoc =  getAirportLocations(); 
     string s2;
-    ifstream infile2("data.txt");
+    ifstream infile2(routesDataLoc);
     if(!infile2) {
         cout << "Data file can not be opened" << endl;
         return routes;

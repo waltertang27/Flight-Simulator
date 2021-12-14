@@ -44,10 +44,10 @@ void Graph::toString() {
     }
 }
 
-void Graph::dfs(string start, string end) {
+vector<string> Graph::dfs(string start, string end) {
     stack<string> st;
     set<string> visited;
-
+    vector<string> dfs_result;
     st.push(start);
  
     while (!st.empty())
@@ -60,11 +60,10 @@ void Graph::dfs(string start, string end) {
         }
  
         visited.insert(start);
-        cout << start << " ";
+        dfs_result.push_back(start);
 
         if (start == end) {
-            cout << " \n";
-            return;
+            return dfs_result;
         }
 
         for (auto neighbor : routeGraph_[start]) {
@@ -73,6 +72,8 @@ void Graph::dfs(string start, string end) {
             }
         }
     }
+
+    return dfs_result;
 }
 
 pair<vector<string>, long double> Graph::dijkstra(string start, string end) {
@@ -125,14 +126,10 @@ pair<vector<string>, long double> Graph::dijkstra(string start, string end) {
             }
 
         }
-    }
-
-    for (auto it = tracker.cbegin(); it != tracker.cend(); ++it) {
-        string key = (*it).first;
-        auto val = (*it).second;
-        cout << key << ": "<< val.first << ", " << val.second << "\n";
 
     }
+
+    return pair<vector<string>, long double>();
 
 }
 

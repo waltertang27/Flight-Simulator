@@ -22,7 +22,7 @@ class Graph {
         
         void tarjansHelper(set<string>& visited, string start, vector<string> path, string airport,  set<vector<string>>& paths, int count, int len);
         set<vector<string>> tarjans(string startAirport, int len);
-        void dfs(string start, string end);
+        vector<string> dfs(string start, string end);
         pair<vector<string>, long double> dijkstra(string start, string end);
         
 };
