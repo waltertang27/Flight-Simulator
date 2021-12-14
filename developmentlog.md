@@ -14,3 +14,6 @@ As we began to work on our project, we realized that our data was to obscure to 
 
 5. **Week of Dec 6th**
 This week consisted of implementing the core functionality of the program which includes our two algorithms - Dijkstras and Tarjans. From the previous week, we were able to fix our bugs that prevented us from generating a weighted graph. With this in place, Varun and Vansh were able to develop the shortest path algorithm from country A to country B. Moreover, Praneeth and Walter were able to finish Tarjan's cycle detection algorithm. Provided number X and starting country, this program returns a list of iteniraries containing X amount of stops within the country. In addition to implemting these algorithms, both groups developed test cases. These test cases will help identify any bugs or defects in the program. We hope to continue testing this week and clear up any last minute changes. 
+
+6. **Week of Dec 13th**
+Today, we finished up the project which includes updating any necessary code bases, data parcing, or test cases. Moreover we finished recording our visual presentation for the project. Finally, we wrapped up any documentation and readme files. 
